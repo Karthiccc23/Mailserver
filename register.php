@@ -8,6 +8,7 @@ $username=trim($line);
 echo " Enter your password ".PHP_EOL;
 $line2 = fgets($handle);
 $password=trim($line2);
+$pass=substr(sha1($password.$_SESSION['salt']),10,-10);
 echo " Enter your Mobile number ".PHP_EOL;
 $line3 = fgets($handle);
 $mobile=trim($line3);
@@ -36,7 +37,7 @@ else
 	$confirm=trim($line6);	
 		if($confirm=="yes")
 		{
-	mysql_query("Insert into userinfo values ('','$username','$password','$mobile','$email','$gender')");
+	mysql_query("Insert into userinfo values ('','$username','$pass','$mobile','$email','$gender')");
 
 
 	echo " REGISTRATION SUCCESSFULL!! ".PHP_EOL;

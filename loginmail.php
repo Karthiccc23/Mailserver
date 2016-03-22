@@ -14,6 +14,7 @@ system('stty echo');
 //echo"\n";
 $username=trim($line);
 $password=trim($line2);
+$pass=substr(sha1($password.$_SESSION['salt']),10,-10);
 $db=mysql_query("Select * from userinfo where username='$username'");
 $row=mysql_fetch_object($db);
 if($row!="")
@@ -24,7 +25,7 @@ if($row!="")
 }
 
 
-	if($row!="" && $susername==$username && $spassword==$password)
+	if($row!="" && $susername==$username && $spassword==$pass)
 	{
 	$susername=$row->username;
 	$spassword=$row->password;

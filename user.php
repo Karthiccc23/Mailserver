@@ -23,6 +23,7 @@ switch(trim($line))
 	break;
         default:
         echo "Wrong option";
+	include('user.php');
         break; 
 }   
 

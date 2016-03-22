@@ -20,7 +20,15 @@ email varchar(50) NOT NULL,
 gender enum("m","f") NOT NULL,
 primary key (user_id)
 );');
-
+mysql_query('create table if not exists logdetails(
+logid int(11) NOT NULL AUTO_INCREMENT,
+senid varchar(50) NOT NULL,
+recid varchar(50) NOT NULL,
+msg text NOT NULL,
+status varchar(30) NOT NULL,
+parentst varchar(30) NOT NULL,
+primary key(logid))
+;');
 
 
 ?>

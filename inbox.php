@@ -93,6 +93,7 @@ echo "Wrong Recipient name/ ID of the message".PHP_EOL;
 	mysql_query("Delete from mails where mailid = '$id'");
 	echo"Message Deleted".PHP_EOL;
 	include('user.php');
+
 	case "log":
 	echo "History of the messages".PHP_EOL;
 	$logg=mysql_query("select senid,recid,status,parentst from logdetails where senid='$username' OR recid='$username'");
