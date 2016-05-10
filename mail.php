@@ -35,10 +35,13 @@ switch(trim($line))
 	if($username=="admin"&&$password=="admin")
 	{
 	echo"Login successfull".PHP_EOL;
-	echo "-----Welcome Administrator----".PHP_EOL;
+	
+
+
+echo "-----Welcome Administrator----".PHP_EOL;
 	echo "--Mail server system logs-- ".PHP_EOL;
 	$i='0';
-	$logg=mysql_query("select * from logdetails");
+	$logg=mysql_query("select logdetails.logid,mails.senid,mails.recid,mails.msg,mails.status from logdetails,mails where  logdetails.MailID = mails.mailid");
         while($log=mysql_fetch_array($logg))
         {
 	  $logid=$log['logid'];
@@ -46,10 +49,10 @@ switch(trim($line))
 	 $recid=$log['recid'];
 	 $msg=$log['msg'];
 	 $status=$log['status'];
-	$parentst=$log['parentst'];
+	//$parentst=$log['parentst'];
 	
-	echo" LOGID   SENDERID   RECIPIENTID    MESSAGE         		 STATUS    PARENTSTATUS".PHP_EOL;
-	echo"$logid   $senid     $recid         $msg      $status     $parentst".PHP_EOL;
+	echo" LOGID   SENDERID   RECIPIENTID    MESSAGE       STATUS    ".PHP_EOL;
+	echo"   $logid   $senid     $recid         $msg      $status     ".PHP_EOL;
 
         }
 	include('mail.php');

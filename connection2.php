@@ -1,5 +1,5 @@
 <?php
-$con=mysql_connect("localhost","root","Qwerty123") or die (mysql_error());
+$con=mysql_connect("localhost","root","3445") or die (mysql_error());
 mysql_query("create database if not exists maildb");
 mysql_select_db("maildb");
 mysql_query('create table if not exists mails(
